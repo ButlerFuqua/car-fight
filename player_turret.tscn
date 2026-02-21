@@ -1,0 +1,151 @@
+[gd_scene format=3 uid="uid://cltvgkqwcxpc6"]
+
+[ext_resource type="Script" uid="uid://d0476qcqua1tk" path="res://player_turret.gd" id="1_316yq"]
+[ext_resource type="Texture2D" uid="uid://dflw20tcanyhi" path="res://assets/visuals/cars/shadows/1.png" id="1_dd2d5"]
+[ext_resource type="Texture2D" uid="uid://tvrk7k8pcsc1" path="res://assets/visuals/cars/wheels/w1.png" id="2_mr0ph"]
+[ext_resource type="Texture2D" uid="uid://cqakacyk2neut" path="res://assets/visuals/cars/processed/1.png" id="3_316yq"]
+[ext_resource type="Texture2D" uid="uid://b2wrjf33hc4k1" path="res://assets/visuals/turrets/ground_shaker_asset/Desert/Weapons/turret_01_mk1.png" id="4_mr0ph"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ncku1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dd2d5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oko76"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mr0ph")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o0hk4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_316yq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_316yq"]
+atlas = ExtResource("4_mr0ph")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncku1"]
+atlas = ExtResource("4_mr0ph")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oko76"]
+atlas = ExtResource("4_mr0ph")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0hk4"]
+atlas = ExtResource("4_mr0ph")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gctyd"]
+atlas = ExtResource("4_mr0ph")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ucff"]
+atlas = ExtResource("4_mr0ph")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7ibu"]
+atlas = ExtResource("4_mr0ph")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0apoj"]
+atlas = ExtResource("4_mr0ph")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3rf6v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_316yq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncku1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oko76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0hk4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gctyd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ucff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7ibu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0apoj")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mr0ph"]
+size = Vector2(499, 1033)
+
+[node name="Player" type="Area2D" unique_id=1566931771]
+scale = Vector2(0.15, 0.15)
+script = ExtResource("1_316yq")
+
+[node name="Shadow" type="AnimatedSprite2D" parent="." unique_id=101795444]
+position = Vector2(10.980687, 2.1961608)
+rotation = -1.5707964
+scale = Vector2(1.0187385, 1.0343148)
+sprite_frames = SubResource("SpriteFrames_ncku1")
+
+[node name="WheelFD" type="AnimatedSprite2D" parent="." unique_id=354872634]
+position = Vector2(-267, -346)
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_oko76")
+
+[node name="WheelFP" type="AnimatedSprite2D" parent="." unique_id=1490774923]
+position = Vector2(230, -346)
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_oko76")
+
+[node name="WheelBD" type="AnimatedSprite2D" parent="." unique_id=1047251137]
+position = Vector2(-267, 384)
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_oko76")
+
+[node name="WheelBP" type="AnimatedSprite2D" parent="." unique_id=759959062]
+position = Vector2(230, 384)
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_oko76")
+
+[node name="Car" type="AnimatedSprite2D" parent="." unique_id=1384377960]
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_o0hk4")
+
+[node name="Turret" type="AnimatedSprite2D" parent="." unique_id=1795624484]
+position = Vector2(0, 98)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_3rf6v")
+animation = &"shoot"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2041751963]
+position = Vector2(-25.5, -15.5)
+shape = SubResource("RectangleShape2D_mr0ph")
