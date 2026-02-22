@@ -11,4 +11,6 @@ bad_guys = ExtResource("2_h2yge")
 [node name="Player" parent="." unique_id=1566931771 instance=ExtResource("1_ig7tw")]
 position = Vector2(588.99994, 497.99997)
 
+[node name="BadGuyTimer" type="Timer" parent="." unique_id=1731622249]
+
 [connection signal="shoot" from="Player" to="." method="_on_player_shoot"]
