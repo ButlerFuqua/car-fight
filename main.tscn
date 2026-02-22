@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bgw2stfac3q5d"]
+
+[ext_resource type="Script" uid="uid://cdyftu2twpidq" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cltvgkqwcxpc6" path="res://player_turret.tscn" id="1_ig7tw"]
+
+[node name="Main" type="Node" unique_id=1112112600]
+script = ExtResource("1_0xm2m")
+
+[node name="Player" parent="." unique_id=1566931771 instance=ExtResource("1_ig7tw")]
+
+[connection signal="shoot" from="Player" to="." method="_on_player_shoot"]

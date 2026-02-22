@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://b7bqrdx30vivw"]
+
+[ext_resource type="Script" uid="uid://b3x0fef8w86vy" path="res://bullet.gd" id="1_t4vbm"]
+[ext_resource type="Texture2D" uid="uid://ciduopl8xkj1r" path="res://assets/visuals/bullets/Laser Sprites/11.png" id="1_v8qja"]
+[ext_resource type="Texture2D" uid="uid://dk8wlto8qncw5" path="res://assets/visuals/bullets/Laser Sprites/19.png" id="2_t4vbm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2b2rl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_v8qja")
+}],
+"loop": true,
+"name": &"enemy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_t4vbm")
+}],
+"loop": true,
+"name": &"player",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b7duk"]
+radius = 2.0
+height = 22.0
+
+[node name="Bullet" type="Area2D" unique_id=351204824]
+script = ExtResource("1_t4vbm")
+
+[node name="image" type="AnimatedSprite2D" parent="." unique_id=819674926]
+rotation = -1.5707964
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_2b2rl")
+animation = &"player"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=797612172]
+shape = SubResource("CapsuleShape2D_b7duk")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=506113161]
+rotation = -1.5707964
+rect = Rect2(-14, -2, 25, 4)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

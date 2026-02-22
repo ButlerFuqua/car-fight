@@ -3,8 +3,12 @@
 [ext_resource type="Script" uid="uid://d0476qcqua1tk" path="res://player_turret.gd" id="1_316yq"]
 [ext_resource type="Texture2D" uid="uid://dflw20tcanyhi" path="res://assets/visuals/cars/shadows/1.png" id="1_dd2d5"]
 [ext_resource type="Texture2D" uid="uid://tvrk7k8pcsc1" path="res://assets/visuals/cars/wheels/w1.png" id="2_mr0ph"]
+[ext_resource type="PackedScene" uid="uid://b7bqrdx30vivw" path="res://bullet.tscn" id="2_ncku1"]
 [ext_resource type="Texture2D" uid="uid://cqakacyk2neut" path="res://assets/visuals/cars/processed/1.png" id="3_316yq"]
 [ext_resource type="Texture2D" uid="uid://b2wrjf33hc4k1" path="res://assets/visuals/turrets/ground_shaker_asset/Desert/Weapons/turret_01_mk1.png" id="4_mr0ph"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mr0ph"]
+size = Vector2(499, 1033)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ncku1"]
 animations = [{
@@ -100,15 +104,17 @@ animations = [{
 }],
 "loop": false,
 "name": &"shoot",
-"speed": 10.0
+"speed": 15.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mr0ph"]
-size = Vector2(499, 1033)
 
 [node name="Player" type="Area2D" unique_id=1566931771]
 scale = Vector2(0.15, 0.15)
 script = ExtResource("1_316yq")
+Bullet = ExtResource("2_ncku1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2041751963]
+position = Vector2(-25.5, -15.5)
+shape = SubResource("RectangleShape2D_mr0ph")
 
 [node name="Shadow" type="AnimatedSprite2D" parent="." unique_id=101795444]
 position = Vector2(10.980687, 2.1961608)
@@ -141,11 +147,11 @@ rotation = -1.5707964
 sprite_frames = SubResource("SpriteFrames_o0hk4")
 
 [node name="Turret" type="AnimatedSprite2D" parent="." unique_id=1795624484]
-position = Vector2(0, 98)
+position = Vector2(-16, 98)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_3rf6v")
 animation = &"shoot"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2041751963]
-position = Vector2(-25.5, -15.5)
-shape = SubResource("RectangleShape2D_mr0ph")
+[node name="BulletSpawnLocation" type="Marker2D" parent="." unique_id=1073981943]
+position = Vector2(-15, -97)
+scale = Vector2(10, 10)
