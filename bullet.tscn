@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://b7bqrdx30vivw"]
 
 [ext_resource type="Script" uid="uid://b3x0fef8w86vy" path="res://bullet.gd" id="1_t4vbm"]
-[ext_resource type="Texture2D" uid="uid://ciduopl8xkj1r" path="res://assets/visuals/bullets/Laser Sprites/11.png" id="1_v8qja"]
+[ext_resource type="Texture2D" uid="uid://dtedxhqu3nwsx" path="res://assets/visuals/bullets/Laser Sprites/24.png" id="2_2b2rl"]
 [ext_resource type="Texture2D" uid="uid://dk8wlto8qncw5" path="res://assets/visuals/bullets/Laser Sprites/19.png" id="2_t4vbm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2b2rl"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_v8qja")
+"texture": ExtResource("2_2b2rl")
 }],
 "loop": true,
 "name": &"enemy",
@@ -34,7 +34,7 @@ script = ExtResource("1_t4vbm")
 rotation = -1.5707964
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_2b2rl")
-animation = &"player"
+animation = &"enemy"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=797612172]
 shape = SubResource("CapsuleShape2D_b7duk")

@@ -15,8 +15,28 @@ func player_shoot():
 		$Turret.play("shoot")
 		shoot.emit()
 		var bullet = Bullet.instantiate()
+		var bullet_sprite_sheet = bullet.find_child("image")
+		if bullet_sprite_sheet != null:
+			bullet_sprite_sheet.animation = "player"
 		bullet.transform = $BulletSpawnLocation.global_transform
 		owner.add_child(bullet)
+
+func player_control(delta: float, rotation):
+	var direction = 0
+	if Input.is_action_pressed("ui_left"):
+		direction = -1
+	if Input.is_action_pressed("ui_right"):
+		direction = 1
+		
+	rotation += angular_speed * direction * delta
+	
+	var velocity = Vector2.ZERO
+	if Input.is_action_pressed("ui_up"):
+		velocity = Vector2.UP.rotated(rotation) * speed
+	if Input.is_action_pressed("ui_down"):
+		velocity = Vector2.DOWN.rotated(rotation) * speed
+		
+	position += velocity * delta
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -44,7 +64,6 @@ func _process(delta: float) -> void:
 		
 #	Rest position
 	if Input.is_action_pressed("ui_text_backspace"):
-		position = Vector2.ZERO
+		position = Vector2(100,100)
 		rotation = 0
-	
 	

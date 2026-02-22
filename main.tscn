@@ -2,10 +2,13 @@
 
 [ext_resource type="Script" uid="uid://cdyftu2twpidq" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cltvgkqwcxpc6" path="res://player_turret.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://budr37exhvsxp" path="res://bad_guy.tscn" id="2_h2yge"]
 
 [node name="Main" type="Node" unique_id=1112112600]
 script = ExtResource("1_0xm2m")
+bad_guys = ExtResource("2_h2yge")
 
 [node name="Player" parent="." unique_id=1566931771 instance=ExtResource("1_ig7tw")]
+position = Vector2(588.99994, 497.99997)
 
 [connection signal="shoot" from="Player" to="." method="_on_player_shoot"]

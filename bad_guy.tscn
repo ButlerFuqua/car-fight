@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://budr37exhvsxp"]
+
+[ext_resource type="Texture2D" uid="uid://b7dpu25wxcxbf" path="res://assets/visuals/cars/shadows/2.png" id="1_0nmgy"]
+[ext_resource type="Script" uid="uid://dfrpj1ffmxmy5" path="res://bad_guy.gd" id="1_287e3"]
+[ext_resource type="Texture2D" uid="uid://d088nwkjxrxep" path="res://assets/visuals/cars/processed/2.png" id="3_0nmgy"]
+[ext_resource type="Texture2D" uid="uid://tvrk7k8pcsc1" path="res://assets/visuals/cars/wheels/w1.png" id="4_8htvd"]
+[ext_resource type="Texture2D" uid="uid://ckgxccaxplfuu" path="res://assets/visuals/turrets/ground_shaker_asset/Red/Weapons/turret_01_mk1.png" id="4_287e3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mr0ph"]
+size = Vector2(499, 1033)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ncku1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0nmgy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oko76"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8htvd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o0hk4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0nmgy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2247"]
+atlas = ExtResource("4_287e3")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_or7j1"]
+atlas = ExtResource("4_287e3")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6iip"]
+atlas = ExtResource("4_287e3")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8htvd"]
+atlas = ExtResource("4_287e3")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_le4l2"]
+atlas = ExtResource("4_287e3")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egsuk"]
+atlas = ExtResource("4_287e3")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eosfp"]
+atlas = ExtResource("4_287e3")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ac2ft"]
+atlas = ExtResource("4_287e3")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3rf6v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2247")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_or7j1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6iip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8htvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_le4l2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egsuk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eosfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ac2ft")
+}],
+"loop": true,
+"name": &"shoot_option_1",
+"speed": 15.0
+}]
+
+[node name="BadGuy" type="Area2D" unique_id=1566931771]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_287e3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2041751963]
+position = Vector2(-25.5, -15.5)
+shape = SubResource("RectangleShape2D_mr0ph")
+
+[node name="Shadow" type="AnimatedSprite2D" parent="." unique_id=101795444]
+position = Vector2(8.480665, 58.446144)
+rotation = -1.5707964
+scale = Vector2(0.93159676, 1.0265266)
+sprite_frames = SubResource("SpriteFrames_ncku1")
+
+[node name="WheelFD" type="AnimatedSprite2D" parent="." unique_id=354872634]
+position = Vector2(-267, -346)
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_oko76")
+
+[node name="WheelFP" type="AnimatedSprite2D" parent="." unique_id=1490774923]
+position = Vector2(230, -346)
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_oko76")
+
+[node name="WheelBD" type="AnimatedSprite2D" parent="." unique_id=1047251137]
+position = Vector2(-267, 384)
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_oko76")
+
+[node name="WheelBP" type="AnimatedSprite2D" parent="." unique_id=759959062]
+position = Vector2(230, 384)
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_oko76")
+
+[node name="Car" type="AnimatedSprite2D" parent="." unique_id=1384377960]
+position = Vector2(2.458766e-06, 56.250008)
+rotation = -1.5707964
+scale = Vector2(0.9012393, 1)
+sprite_frames = SubResource("SpriteFrames_o0hk4")
+
+[node name="Turret" type="AnimatedSprite2D" parent="." unique_id=1795624484]
+position = Vector2(-13, -360)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_3rf6v")
+animation = &"shoot_option_1"
+
+[node name="BulletSpawnLocation" type="Marker2D" parent="." unique_id=1073981943]
+position = Vector2(-15, -559)
+scale = Vector2(10, 10)
