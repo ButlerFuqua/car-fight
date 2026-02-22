@@ -16,17 +16,7 @@ func player_shoot():
 		shoot.emit()
 		var bullet = Bullet.instantiate()
 		bullet.transform = $BulletSpawnLocation.global_transform
-		#if owner != null:
 		owner.add_child(bullet)
-		#else:
-			#print("ERROR, owner is null")
-		
-		#$Turret.play("shoot")
-		#shoot.emit()
-		#var bullet = Bullet.instantiate()
-		#bullet.transform = $BulletSpawnLocation.global_transform
-		#owner.add_child(bullet)
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -49,7 +39,7 @@ func _process(delta: float) -> void:
 #	END MOVE
 
 #Shoot
-	if Input.is_action_pressed("shoot") && !$Turret.is_playing():
+	if Input.is_action_just_pressed("shoot") && !$Turret.is_playing():
 		player_shoot()
 		
 #	Rest position

@@ -108,7 +108,7 @@ animations = [{
 }]
 
 [node name="Player" type="Area2D" unique_id=1566931771]
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.1, 0.1)
 script = ExtResource("1_316yq")
 Bullet = ExtResource("2_ncku1")
 
