@@ -2,15 +2,207 @@
 
 [ext_resource type="Script" uid="uid://cdyftu2twpidq" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cltvgkqwcxpc6" path="res://player_turret.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://budr37exhvsxp" path="res://bad_guy.tscn" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://b7dpu25wxcxbf" path="res://assets/visuals/cars/shadows/2.png" id="2_272bh"]
+[ext_resource type="Texture2D" uid="uid://dxeffmewluxrm" path="res://assets/visuals/ground_expanded.png" id="3_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://tvrk7k8pcsc1" path="res://assets/visuals/cars/wheels/w1.png" id="3_5vw27"]
+[ext_resource type="Texture2D" uid="uid://d088nwkjxrxep" path="res://assets/visuals/cars/processed/2.png" id="4_kek77"]
+[ext_resource type="Texture2D" uid="uid://ckgxccaxplfuu" path="res://assets/visuals/turrets/ground_shaker_asset/Red/Weapons/turret_01_mk1.png" id="5_4c57u"]
+
+[sub_resource type="GDScript" id="GDScript_0nmgy"]
+script/source = "extends Area2D
+
+@export var speed = 400
+var angular_speed = PI
+
+@export var Bullet : PackedScene
+
+func bad_guy_shoot():
+		$Turret.play(\"shoot\")
+		var bullet = Bullet.instantiate()
+		var bullet_sprite_sheet = bullet.find_child(\"image\")
+		if bullet_sprite_sheet != null:
+			bullet_sprite_sheet.animation = \"enemy\"
+		bullet.transform = $BulletSpawnLocation.global_transform
+		owner.add_child(bullet)
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mr0ph"]
+size = Vector2(499, 1033)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ncku1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_272bh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oko76"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_5vw27")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o0hk4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_kek77")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2247"]
+atlas = ExtResource("5_4c57u")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_or7j1"]
+atlas = ExtResource("5_4c57u")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6iip"]
+atlas = ExtResource("5_4c57u")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8htvd"]
+atlas = ExtResource("5_4c57u")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_le4l2"]
+atlas = ExtResource("5_4c57u")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egsuk"]
+atlas = ExtResource("5_4c57u")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eosfp"]
+atlas = ExtResource("5_4c57u")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ac2ft"]
+atlas = ExtResource("5_4c57u")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3rf6v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2247")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_or7j1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6iip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8htvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_le4l2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egsuk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eosfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ac2ft")
+}],
+"loop": true,
+"name": &"shoot_option_1",
+"speed": 15.0
+}]
+
+[sub_resource type="PackedScene" id="PackedScene_efxa6"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
+"names": PackedStringArray("BadGuy", "Area2D", "scale", "script", "CollisionShape2D", "CollisionShape2D", "position", "shape", "Shadow", "AnimatedSprite2D", "position", "rotation", "scale", "sprite_frames", "WheelFD", "AnimatedSprite2D", "position", "rotation", "sprite_frames", "WheelFP", "AnimatedSprite2D", "position", "rotation", "sprite_frames", "WheelBD", "AnimatedSprite2D", "position", "rotation", "sprite_frames", "WheelBP", "AnimatedSprite2D", "position", "rotation", "sprite_frames", "Car", "AnimatedSprite2D", "position", "rotation", "scale", "sprite_frames", "Turret", "AnimatedSprite2D", "position", "scale", "sprite_frames", "animation", "BulletSpawnLocation", "Marker2D", "position", "scale"),
+"node_count": 10,
+"node_ids": PackedInt32Array(1566931771, 2041751963, 101795444, 354872634, 1490774923, 1047251137, 759959062, 1384377960, 1795624484, 1073981943),
+"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath(".")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 2, 2, 0, 3, 1, 0, 1073741824, 0, 5, 4, -1, 2, 6, 2, 7, 3, 0, 1073741825, 0, 9, 8, -1, 4, 10, 4, 11, 5, 12, 6, 13, 7, 0, 1073741826, 0, 15, 14, -1, 3, 16, 8, 17, 9, 18, 10, 0, 1073741827, 0, 20, 19, -1, 3, 21, 11, 22, 12, 23, 13, 0, 1073741828, 0, 25, 24, -1, 3, 26, 14, 27, 15, 28, 16, 0, 1073741829, 0, 30, 29, -1, 3, 31, 17, 32, 18, 33, 19, 0, 1073741830, 0, 35, 34, -1, 4, 36, 20, 37, 21, 38, 22, 39, 23, 0, 1073741831, 0, 41, 40, -1, 4, 42, 24, 43, 25, 44, 26, 45, 27, 0, 1073741832, 0, 47, 46, -1, 2, 48, 28, 49, 29, 0),
+"variants": [Vector2(0.1, 0.1), SubResource("GDScript_0nmgy"), Vector2(-25.5, -15.5), SubResource("RectangleShape2D_mr0ph"), Vector2(8.480665, 58.446144), -1.5707964, Vector2(0.93159676, 1.0265266), SubResource("SpriteFrames_ncku1"), Vector2(-267, -346), -1.5707964, SubResource("SpriteFrames_oko76"), Vector2(230, -346), 1.5707964, SubResource("SpriteFrames_oko76"), Vector2(-267, 384), -1.5707964, SubResource("SpriteFrames_oko76"), Vector2(230, 384), 1.5707964, SubResource("SpriteFrames_oko76"), Vector2(2.458766e-06, 56.250008), -1.5707964, Vector2(0.9012393, 1), SubResource("SpriteFrames_o0hk4"), Vector2(-13, -360), Vector2(4, 4), SubResource("SpriteFrames_3rf6v"), &"shoot_option_1", Vector2(-15, -559), Vector2(10, 10)],
+"version": 3
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(66, 2508)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(2608, 76)
 
 [node name="Main" type="Node" unique_id=1112112600]
 script = ExtResource("1_0xm2m")
-bad_guys = ExtResource("2_h2yge")
+bad_guys = SubResource("PackedScene_efxa6")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=630049777]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -690.0
+offset_top = -718.0
+offset_right = 3158.0
+offset_bottom = 3634.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_1bvp3")
 
 [node name="Player" parent="." unique_id=1566931771 instance=ExtResource("1_ig7tw")]
 position = Vector2(588.99994, 497.99997)
+rotation = -1.5707964
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=677028424]
+limit_left = -787
+limit_top = -787
+limit_right = 1904
+limit_bottom = 1888
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+editor_draw_limits = true
 
 [node name="BadGuyTimer" type="Timer" parent="." unique_id=1731622249]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1331070800]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=590400260]
+position = Vector2(-715, 533)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=2113842162]
+position = Vector2(1835, 533)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1932097983]
+position = Vector2(556, -748)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=65036794]
+position = Vector2(556, 1813)
+shape = SubResource("RectangleShape2D_lquwl")
 
 [connection signal="shoot" from="Player" to="." method="_on_player_shoot"]

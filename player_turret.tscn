@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b2wrjf33hc4k1" path="res://assets/visuals/turrets/ground_shaker_asset/Desert/Weapons/turret_01_mk1.png" id="4_mr0ph"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mr0ph"]
-size = Vector2(499, 1033)
+size = Vector2(104, 53)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ncku1"]
 animations = [{
@@ -107,51 +107,51 @@ animations = [{
 "speed": 15.0
 }]
 
-[node name="Player" type="Area2D" unique_id=1566931771]
-scale = Vector2(0.1, 0.1)
+[node name="Player" type="CharacterBody2D" unique_id=1477736785]
 script = ExtResource("1_316yq")
 Bullet = ExtResource("2_ncku1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2041751963]
-position = Vector2(-25.5, -15.5)
+position = Vector2(1, -1.5)
 shape = SubResource("RectangleShape2D_mr0ph")
 
 [node name="Shadow" type="AnimatedSprite2D" parent="." unique_id=101795444]
-position = Vector2(10.980687, 2.1961608)
-rotation = -1.5707964
-scale = Vector2(1.0187385, 1.0343148)
+position = Vector2(1.009319, 1.8136946)
+scale = Vector2(0.09958195, 0.109671295)
 sprite_frames = SubResource("SpriteFrames_ncku1")
 
 [node name="WheelFD" type="AnimatedSprite2D" parent="." unique_id=354872634]
-position = Vector2(-267, -346)
-rotation = -1.5707964
+position = Vector2(34.999992, -26)
+scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_oko76")
 
 [node name="WheelFP" type="AnimatedSprite2D" parent="." unique_id=1490774923]
-position = Vector2(230, -346)
-rotation = 1.5707964
+position = Vector2(35, 22.999996)
+scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_oko76")
 
 [node name="WheelBD" type="AnimatedSprite2D" parent="." unique_id=1047251137]
-position = Vector2(-267, 384)
-rotation = -1.5707964
+position = Vector2(-37, -25.999996)
+scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_oko76")
 
 [node name="WheelBP" type="AnimatedSprite2D" parent="." unique_id=759959062]
-position = Vector2(230, 384)
-rotation = 1.5707964
+position = Vector2(-36.999996, 23)
+scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_oko76")
 
 [node name="Car" type="AnimatedSprite2D" parent="." unique_id=1384377960]
-rotation = -1.5707964
+scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_o0hk4")
 
 [node name="Turret" type="AnimatedSprite2D" parent="." unique_id=1795624484]
-position = Vector2(-16, 98)
-scale = Vector2(4, 4)
+position = Vector2(-10, -2.999999)
+rotation = 1.5707964
+scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_3rf6v")
 animation = &"shoot"
 
 [node name="BulletSpawnLocation" type="Marker2D" parent="." unique_id=1073981943]
-position = Vector2(-15, -97)
+position = Vector2(8.999999, -3.0000005)
+rotation = 1.5707964
 scale = Vector2(10, 10)

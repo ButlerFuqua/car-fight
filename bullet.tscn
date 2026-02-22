@@ -34,7 +34,7 @@ script = ExtResource("1_t4vbm")
 rotation = -1.5707964
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_2b2rl")
-animation = &"enemy"
+animation = &"player"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=797612172]
 shape = SubResource("CapsuleShape2D_b7duk")
