@@ -107,9 +107,14 @@ animations = [{
 "speed": 15.0
 }]
 
-[node name="Player" type="CharacterBody2D" unique_id=1477736785]
+[node name="Player" type="CharacterBody2D" unique_id=1477736785 groups=["player"]]
 script = ExtResource("1_316yq")
 Bullet = ExtResource("2_ncku1")
+sterring_angle = 20
+engine_power = 1200
+braking = -700
+max_speed_reverse = 750
+slip_speed = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2041751963]
 position = Vector2(1, -1.5)

@@ -21,6 +21,7 @@ var steer_direction
 # Called when the node enters the scene tree for the first time.
 var screen_size
 func _ready() -> void:
+	Global.player = self
 	screen_size = get_viewport_rect().size
 	print(screen_size)
 
